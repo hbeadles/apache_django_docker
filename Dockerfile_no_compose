@@ -2,8 +2,6 @@ FROM ubuntu:18.04
 
 MAINTAINER Hayden Beadles
 
-ARG MAIN_HOME_DIR=/usr/local/base_user
-ARG HOME_DIR=/var/www/base_site
 ARG BASE_DIR=/var/www
 ARG WEBSITE_NAME=base_site
 ENV WEBSITE_NAME=${WEBSITE_NAME}
