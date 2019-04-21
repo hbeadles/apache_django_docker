@@ -18,7 +18,11 @@ based on python3.6, and also running some django related migrations and commands
 4. Additionally, you can use the Dockerfile_no_compose to deploy the application without docker-compose
 5. If you decide to replace base_site with your own django application, just change the **ARG WEBSITE_NAME** in the Dockerfile
  to reflect the name of the django application and modify the volume mounts in docker-compose.yml. If you use the Dockerfile_no_compose, you'll have to change some of the copy commands in the Dockerfile.
-
+6. When adding in a new django site, you'll also have to change the apache_django.conf file that is mounted
+into apache2. Specifically, entries for WSGIDaemonProcess, WSGIProcessGroup, WSGIScriptAlias, WSGIPythonPath,
+and settings in the VirtualHost setup.
+7. Currently docker maps from port 80 on the container to port 8000 on the host. You can modify those settings in 
+the docker-compose.yml file
 
 ### Docker Image Details
 1. Built using ubuntu:18.04, bionic
