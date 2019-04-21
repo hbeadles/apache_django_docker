@@ -22,7 +22,7 @@ based on python3.6, and also running some django related migrations and commands
 
 ### Docker Image Details
 1. Built using ubuntu:18.04, bionic
-2. Pulls in some standard libraries. Bionic already comes with python3.6 native, but I include the headers
-and some additional libraries to be sure
+2. Pulls in some standard libraries. ubuntu is a minimal dockerfile, so I ensure that python3.6 is installed,
+along with some helpful ones (vim, build_essential) 
 3. Installs apache2 and libapache2-mod-wsgi-py3 to install mod_wsgi
  
