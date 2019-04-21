@@ -2,8 +2,7 @@
 A docker image to help deploy python django applications into an Apache server environment.
 
 ### Purpose
-There are a lot of docker images out there that make it really easy to deploy projects on the Internet. However,
-most of these images are not production ready. They rely on development servers to get things done.
+There are a lot of docker images out there that make it really easy to deploy projects on the Internet.
 The purpose of this docker image is to create an environment to make it easy to test a django 
 application in a pseudo-production environment, using an Apache server in the Docker image, setting up
 mod_wsgi, and setting up static files on the server.
@@ -17,6 +16,9 @@ based on python3.6, and also running some django related migrations and commands
     to separately.
 3. Run **docker-compose up -d** to build the default image and deploy the application in Apache
 4. Additionally, you can use the Dockerfile_no_compose to deploy the application without docker-compose
+5. If you decide to replace base_site with your own django application, just change the ARG WEBSITE_NAME in the Dockerfile
+ to reflect the name of the django application
+
 
 ### Docker Image Details
 1. Built using ubuntu:18.04, bionic
