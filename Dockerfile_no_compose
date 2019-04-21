@@ -6,6 +6,7 @@ ARG BASE_DIR=/var/www
 ARG WEBSITE_NAME=base_site
 ENV WEBSITE_NAME=${WEBSITE_NAME}
 
+# Add apache2, mod_wsgi, python3.6 libraries
 RUN apt-get update && apt-get install -y apache2 \
     libapache2-mod-wsgi-py3 \
     build-essential \
