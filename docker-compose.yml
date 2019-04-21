@@ -1,0 +1,12 @@
+version: '3'
+services:
+    webserver:
+      build: .
+      ports:
+        - 8000:80
+      volumes:
+        - ./base_site:/var/www/base_site
+        - ./apache_django.conf:/etc/apache2/sites-available/000-default.conf
+        - ./startup.sh:/var/www/startup.sh
+      command: server
+

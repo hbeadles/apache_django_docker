@@ -1,0 +1,34 @@
+FROM ubuntu:18.04
+
+MAINTAINER Hayden Beadles
+
+ARG MAIN_HOME_DIR=/usr/local/base_user
+ARG HOME_DIR=/var/www/base_site
+ARG BASE_DIR=/var/www
+ARG WEBSITE_NAME=base_site
+ENV WEBSITE_NAME=${WEBSITE_NAME}
+
+RUN apt-get update && apt-get install -y apache2 \
+    libapache2-mod-wsgi-py3 \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    python3.6-dev \
+    python3.6 \
+    python3.6-venv \
+    python3-pip \
+    vim \
+    sudo \
+    && apt-get clean \
+    && apt-get autoremove \
+    && rm -rf /var/lib/apt/lists/*
+
+
+EXPOSE 80
+
+RUN mkdir ${BASE_DIR}/base_site
+COPY base_site ${BASE_DIR}/base_site
+COPY apache_django.conf /etc/apache2/sites-available/000-default.conf
+COPY startup.sh ${BASE_DIR}
+
+ENTRYPOINT ["/bin/bash", "/var/www/startup.sh"]

@@ -1,0 +1,11 @@
+base_site/collected-static
+base_site/collected-static/*
+base_site/env/*
+base_site/env
+base_site/db.sqlite3
+base_site/__pycache__/*
+base_site/__pycache__
+__pycache__/*
+__pycache__
+.idea/*
+.idea
