@@ -17,12 +17,12 @@ based on python3.6, and also running some django related migrations and commands
 3. Run **docker-compose up -d** to build the default image and deploy the application in Apache
 4. Additionally, you can use the Dockerfile_no_compose to deploy the application without docker-compose
 5. If you decide to replace base_site with your own django application, just change the **ARG WEBSITE_NAME** in the Dockerfile
- to reflect the name of the django application. If you use the Dockerfile_no_compose, you'll have to change some of the copies.
+ to reflect the name of the django application and modify the volume mounts in docker-compose.yml. If you use the Dockerfile_no_compose, you'll have to change some of the copies.
 
 
 ### Docker Image Details
 1. Built using ubuntu:18.04, bionic
 2. Pulls in some standard libraries. Bionic already comes with python3.6 native, but I include the headers
 and some additional libraries to be sure
-3. Installs apache and libapache2-mod-wsgi-py3 to install mod_wsgi
+3. Installs apache2 and libapache2-mod-wsgi-py3 to install mod_wsgi
  
